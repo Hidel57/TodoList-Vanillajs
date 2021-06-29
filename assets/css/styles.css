@@ -1,0 +1,47 @@
+/*-----------
+    RESET
+-------------*/
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Open Sans", serif;
+}
+
+img {
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+li {
+  list-style: none;
+}
+
+/*-----------
+    RESET
+-------------*/
+
+.header {
+  height: 72px;
+  background-color: black;
+}
+
+.header--container {
+  margin-left: 1rem;
+  margin-right: 1rem;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.logo {
+  height: 48px;
+}
