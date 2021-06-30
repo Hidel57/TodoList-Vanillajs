@@ -4,19 +4,67 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Todo List</title>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
     <link rel="stylesheet" href="./assets/css/styles.css">
+
+    <title>Todo List</title>
 </head>
 <body>
+
     <header class="header">
-        <div class="header--container">
+        <div class="header--container container">
             <div class="header__logo">
                 <img class="logo" src="./assets/img/Logo.png" alt="logo">
             </div>
         </div>
     </header>
-    <h1>Todo List</h1>
+
+    <div class="main-container">
+        <div class="container">
+            <div class="tab">
+                <button class="tab__link" onclick="onClickTab(event, 'Task')">Tasks</button>
+                <button class="tab__link" onclick="onClickTab(event, 'Completed')">Completed</button>
+            </div>
+            <div id="Task" class="tab__content">
+                <div id="todoList"></div>
+            </div>    
+            <div id="Completed" class="tab__content">
+                <div id="todoListCompleted"></div>
+            </div>
+        </div>
+    </div>
+
+    <button id="btnModal" class="float">
+        <span class="material-icons-outlined">
+            add
+        </span>
+    </button>
+
+    <div id="myModal" class="modal">
+        <div class="modal__content">
+            <h2>New Todo</h2>
+            <form class="form" id="form">
+                <div class='text-field text-field--container'>
+                    <input class='input text-field__input' type='text' id='title' name='title' required />
+                    <label class='text-field__label' htmlFor='title'>title</label>
+                </div>
+                <div class='text-field text-field--container'>
+                    <textarea class='input text-field__input text-field__input--textarea' rows="4" id='description' name='description' required></textarea>
+                    <label class='text-field__label' htmlFor='description'>description</label>
+                </div>
+                <button type="submit" class="icon-btn">
+                    <span class="material-icons-outlined">done</span>
+                </button>
+                <button class="icon-btn" id="closeModal">
+                    <span class="material-icons-outlined">close</span>
+                </button>
+            </form>
+        </div>
+    </div>
 
     <script src="./assets/js/index.js"></script>
+    <script src="./assets/js/tabs.js"></script>
+    <script src="./assets/js/modal.js"></script>
 </body>
 </html>
