@@ -314,3 +314,50 @@ input:-webkit-autofill:active {
 .icon-btn:focus:before {
   opacity: 0.12;
 }
+
+/*
+  * CARD
+*/
+
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.demo-card {
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .demo-card {
+    max-width: 240px;
+    margin-right: 1rem;
+  }
+}
+.card {
+  border-radius: 8px;
+  height: max-content;
+  background-color: #fff;
+  border: 1px solid var(--primary-color);
+}
+
+.card-primary {
+  padding: 0.5rem 1rem;
+}
+
+.card__title {
+  color: rgb(35, 35, 35);
+  font-family: "Lucida", serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5rem;
+  letter-spacing: 1px;
+}
+
+.card__description {
+  font-size: 0.875rem;
+  color: var(--text-disabled-color);
+  height: 1rem;
+  overflow: hidden;
+}

@@ -23,14 +23,15 @@
     <div class="main-container">
         <div class="container">
             <div class="tab">
-                <button class="tab__link" onclick="onClickTab(event, 'Task')">Tasks</button>
-                <button class="tab__link" onclick="onClickTab(event, 'Completed')">Completed</button>
+                <button id="showTodos" class="tab__link" onclick="onClickTab(event, 'Task')">Tasks</button>
+                <button id="showTodosCompleted" class="tab__link" onclick="onClickTab(event, 'Completed')">Completed</button>
             </div>
             <div id="Task" class="tab__content">
-                <div id="todoList"></div>
-            </div>    
+                <div id="todoList" class="cards-container">
+                </div>
+            </div>
             <div id="Completed" class="tab__content">
-                <div id="todoListCompleted"></div>
+                <div id="todoListCompleted" class="cards-container"></div>
             </div>
         </div>
     </div>
