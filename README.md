@@ -1,3 +1,3 @@
-# Todo List App
+# Task List App
 
 "Learning..."

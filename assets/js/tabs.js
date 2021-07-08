@@ -1,6 +1,6 @@
 
 const onClickTab = (evt, tab) => {
-    const tabContent = document.getElementsByClassName("tab__content")
+    const tabContent = document.getElementsByClassName("cards-container")
     const tabLink = document.getElementsByClassName("tab__link")
 
     for (let i = 0; i < tabContent.length; i++) {
@@ -11,6 +11,6 @@ const onClickTab = (evt, tab) => {
         tabLink[i].className = tabLink[i].className.replace(" active", "")
     }
 
-    document.getElementById(tab).style.display = "block"
-        evt.currentTarget.className += " active"
+    document.getElementById(tab).style.display = "flex"
+    evt.currentTarget.className += " active"
 }

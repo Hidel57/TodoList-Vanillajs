@@ -3,7 +3,7 @@
 -------------*/
 
 :root {
-  --primary-color: #2f2f2f;
+  --primary-color: #516aff;
   --text-disabled-color: rgba(0, 0, 0, 0.6);
   --disabled-color: rgba(0, 0, 0, 0.42);
   --hover-color: rgba(0, 0, 0, 0.6);
@@ -45,6 +45,31 @@ input:-webkit-autofill:active {
 }
 
 /*-----------
+    TIPOGRAPHY
+-------------*/
+
+.title1 {
+  font-size: 2rem;
+  font-weight: 300;
+  line-height: 1.2;
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+}
+
+.text-body {
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+  font-weight: normal;
+  margin-bottom: 1.5rem;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.text-error {
+  font-size: 0.875rem;
+  color: red;
+  margin-bottom: 1rem;
+}
+/*-----------
     GRID CONTAINER
 -------------*/
 
@@ -84,6 +109,9 @@ input:-webkit-autofill:active {
   }
 }
 
+.demo-container {
+  margin-top: 3rem;
+}
 /*-----------
     HEADER
 -------------*/
@@ -144,7 +172,6 @@ input:-webkit-autofill:active {
 
 .tab__content {
   display: none;
-  padding: 6px 12px;
   border: 1px solid #ccc;
   border-top: none;
   animation: fadeEffect 1s;
@@ -187,11 +214,11 @@ input:-webkit-autofill:active {
   background-color: rgba(0, 0, 0, 0.4);
 }
 
-.modal__content {
+.modal--container {
   position: relative;
   background-color: #fefefe;
   top: 72px;
-  padding: 1rem;
+  padding: 0 1rem;
   border: 1px solid #888;
   width: 100%;
   max-width: 400px;
@@ -221,8 +248,8 @@ input:-webkit-autofill:active {
     TEXT-FIELD
 */
 
-.text-field--container {
-  margin: 1rem;
+.form__items {
+  margin-bottom: 1rem;
 }
 .text-field {
   position: relative;
@@ -242,7 +269,10 @@ input:-webkit-autofill:active {
   border: 2px solid var(--primary-color);
 }
 .text-field__input--textarea {
-  height: 7rem;
+  height: 8rem;
+}
+.text-field__input--textarea + .text-field__label {
+  top: 10%;
 }
 
 .text-field__input {
@@ -283,6 +313,7 @@ input:-webkit-autofill:active {
   fill: currentColor;
   color: inherit;
   cursor: pointer;
+  user-select: none;
   width: 48px;
   height: 48px;
   padding: 12px;
@@ -322,11 +353,11 @@ input:-webkit-autofill:active {
 .cards-container {
   display: flex;
   flex-wrap: wrap;
+  margin: 1rem;
 }
 
 .demo-card {
   margin-bottom: 1rem;
-  width: 100%;
 }
 
 @media (min-width: 768px) {
@@ -339,11 +370,47 @@ input:-webkit-autofill:active {
   border-radius: 8px;
   height: max-content;
   background-color: #fff;
-  border: 1px solid var(--primary-color);
+  border: 1px solid var(--disabled-color);
+  width: 100%;
+}
+
+.card-information {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  outline: none;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.card-information::after,
+.card-information::before {
+  background-color: #000;
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  content: "";
+  z-index: 1;
+}
+
+.card-information:hover:before {
+  opacity: 0.04;
+}
+
+.card-information:focus:before {
+  opacity: 0.12;
 }
 
 .card-primary {
   padding: 0.5rem 1rem;
+}
+
+.card-secondary {
+  padding: 0 1rem 8px;
 }
 
 .card__title {
@@ -351,13 +418,27 @@ input:-webkit-autofill:active {
   font-family: "Lucida", serif;
   font-size: 1rem;
   font-weight: 400;
-  line-height: 1.5rem;
+  line-height: 1.25rem;
   letter-spacing: 1px;
 }
 
 .card__description {
   font-size: 0.875rem;
   color: var(--text-disabled-color);
-  height: 1rem;
-  overflow: hidden;
+  height: 1.25rem;
+  overflow-y: hidden;
+}
+
+/*
+  * CARD
+*/
+
+.material-icons-outlined.red {
+  color: red;
+}
+.material-icons-outlined.green {
+  color: green;
+}
+.material-icons-outlined.blue {
+  color: blue;
 }
