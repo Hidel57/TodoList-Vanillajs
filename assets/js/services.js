@@ -54,12 +54,8 @@ const showFormEdit = (id) => {
     taskId.value = tasksDB[index].id
     title.value = tasksDB[index].title
     description.value = tasksDB[index].description
-    console.log(taskId.value)
 }
 
-const validateField = (input, text) => {
-
-}
 const clearForm = () => {
     error.innerHTML = ''
     title.value = ''
@@ -90,8 +86,7 @@ addTaskBtn.addEventListener('click', () => {
     createTask()            
     clearForm()
     readTasksForState(taskList, false)
-    formModal.style.display = "none";
-    // location.reload()    
+    formModal.style.display = "none"
 })
 
 editTaskBtn.addEventListener('click', () => {
@@ -111,8 +106,9 @@ editTaskBtn.addEventListener('click', () => {
     const taskId = document.getElementById('taskId')
     const id = Number(taskId.value)
     updateTask(id)
-    formModal.style.display = "none";
-    // location.reload()
+    if (taskList.style.display === 'none') readTasksForState(taskListCompleted, true)
+    else readTasksForState(taskList, false)
+    formModal.style.display = "none"
 })
 
 /************
@@ -130,7 +126,6 @@ const readTasks = () => {
     const tasksDB = getData('tasks')
     if (tasksDB.length === 0) console.log('No exist tasks')
     else {
-        console.log('readTasks')
         tasksDB.forEach(el => {
             console.log(el)
         })
@@ -186,7 +181,9 @@ const deleteTask = id => {
     const tasksDB = getData('tasks')
     const newtasksDB = tasksDB.filter(item => item.id !== id)
     setData(newtasksDB)
-    location.reload()
+    if (taskList.style.display === 'none') readTasksForState(taskListCompleted, true)
+    else readTasksForState(taskList, false)
+    formModal.style.display = "none"
 }
 
 const changeTaskState = id => {
@@ -196,8 +193,16 @@ const changeTaskState = id => {
         let index = tasksDB.findIndex(el => el.id === id)
         tasksDB[index].state = !tasksDB[index].state
         setData(tasksDB)
-        console.log(tasksDB[index])
-        location.reload()
+        
+        const tabLink = document.getElementsByClassName("tab__link")
+        for (let i = 0; i < tabLink.length; i++) {
+            tabLink[i].className = tabLink[i].className.replace(" active", "")
+        }
+
+        document.getElementById('showTasks').classList.add('active')
+        taskList.style.display = "flex"
+        taskListCompleted.style.display = "none"
+        readTasksForState(taskList, false)
     }
 }
 
