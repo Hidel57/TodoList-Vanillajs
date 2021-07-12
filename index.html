@@ -23,23 +23,26 @@
     <div class="main-container">
         <div class="container">
             <div class="tab">
-                <button id="showTasks" class="tab__link" onclick="onClickTab(event, 'taskList')">Tasks</button>
-                <button id="showTasksCompleted" class="tab__link" onclick="onClickTab(event, 'taskListCompleted')">Task Completed</button>
+                <button id="showTasks" class="tab__link"
+                    onclick="readTaskEvent(this.id, 'taskList', false)"
+                >Tasks</button>
+                <button id="showTasksCompleted" class="tab__link"
+                    onclick="readTaskEvent(this.id, 'taskListCompleted', true)"
+                >Task Completed</button>
             </div>
             <div id="taskList" class="cards-container"></div>
             <div id="taskListCompleted" class="cards-container"></div>
         </div>
     </div>
 
-    <button id="showFormBtn" class="float material-icons-outlined">
+    <button onclick="showFormAdd()" class="float material-icons-outlined">
         add
     </button>
 
     <div id="formModal" class="modal">
         <div class="modal--container">
             <div class="demo-container">
-                <h2 id="formAddTitle" class="title1">Add Task</h2>
-                <h2 id="formEditTitle" class="title1" style="display: none;">Edit Task</h2>
+                <h2 id="formTitle" class="title1"></h2>
                 <p id="error" class="text-error"></p>
                 <div class="form" id="form">
                     <input type="text" id="taskId" style="display: none;">
@@ -52,13 +55,13 @@
                             name='description'></textarea>
                         <label class='text-field__label' htmlFor='description'>description</label>
                     </div>
-                    <button id="addTaskBtn" class="icon-btn material-icons-outlined green">
+                    <button id="addTaskBtn" onclick="addTaskEvent()" class="icon-btn material-icons-outlined green">
                         done
                     </button>
-                    <button id="editTaskBtn" class="icon-btn material-icons-outlined blue" style="display: none;">
+                    <button id="editTaskBtn" onclick="editTaskEvent()" class="icon-btn material-icons-outlined blue">
                         edit
                     </button>
-                    <button id="closeForm" class="icon-btn material-icons-outlined red">
+                    <button class="icon-btn material-icons-outlined red" onclick="closeForm()">
                         close
                     </button>
                 </div>
@@ -77,5 +80,6 @@
     <script src="./assets/js/tabs.js"></script>
     <script src="./assets/js/modal.js"></script>
     <script src="./assets/js/services.js"></script>
+    <script src="./assets/js/events.js"></script>
 </body>
 </html>

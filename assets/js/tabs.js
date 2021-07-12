@@ -1,5 +1,5 @@
 
-const onClickTab = (evt, tab) => {
+const onClickTab = (thisId, tab) => {
     const tabContent = document.getElementsByClassName("cards-container")
     const tabLink = document.getElementsByClassName("tab__link")
 
@@ -12,5 +12,5 @@ const onClickTab = (evt, tab) => {
     }
 
     document.getElementById(tab).style.display = "flex"
-    evt.currentTarget.className += " active"
+    document.getElementById(thisId).classList.add('active')
 }
